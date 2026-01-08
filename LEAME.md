@@ -134,7 +134,9 @@ simultaneas.
 
 ## Diagrama de flujo para kronolapse
 
-![](../misc/dgrm-flow/dgrm-kronolapse.png){ width=80% }
+<p align="center">
+  <img src="extra/dgrm-kronolapse.jpg" width="70%"/>
+</p>
 
 El diagrama de flujo fue desarrollado en [draw.io](https://www.drawio.com/).
 
