@@ -125,7 +125,9 @@ not coincide to avoid overlapping of two simultaneous images.
 
 ## kronolapse flowchart
 
-![](extra/dgrm-kronolapse.jpg){ width=80% }
+<p align="center">
+  <img src="extra/dgrm-kronolapse.jpg" width="70%"/>
+</p>
 
 This flowchart was developed using [draw.io](https://www.draw.io/).
 
