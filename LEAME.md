@@ -1,7 +1,12 @@
 ![Static Badge](https://img.shields.io/badge/python-3.12%2B-blue)
 ![Static Badge](https://img.shields.io/badge/license-%20%20GNU%20GPLv3+%20-red?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/mikemolina/kronolapse)
+![GitHub Tag](https://img.shields.io/github/v/tag/mikemolina/kronolapse)
 
 # KRoNoLAPSE
+
+<video src="https://github.com/user-attachments/assets/487f8c54-1d6d-4d69-bf85-ff359997944f" controls width="400"></video>
+
 **kronolapse** es una herramienta en Python que gestiona la visualización de
 contenidos, automatizando la exhibición de imágenes en un monitor según horarios
 (`cronograma`) y tiempos (`lapsos`) personalizados, garantizando la presentación
