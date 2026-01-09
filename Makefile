@@ -150,6 +150,7 @@ clean-build:
 
 clean-test:
 	rm -f fGauss.jpg RGBSquare.jpg Rings.jpg schedule_test.csv
+	rm -fR .pytest_cache
 
 clean-doc:
 	rm -f $(ABOUT_RST)
