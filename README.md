@@ -29,7 +29,7 @@ the precise moment.
 2. Install the latest version from the repository with this line:
 
    ```bash
-   pip install @git+https://github.com/mikemolina/kronolapse.git
+   pip install git+https://github.com/mikemolina/kronolapse.git
    ```
 
 ### Development mode

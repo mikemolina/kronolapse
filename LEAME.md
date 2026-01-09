@@ -31,7 +31,7 @@ correcta del contenido en el momento preciso.
 2. Instalar la última versión desde el repositorio con esta linea:
 
    ```bash
-   pip install @git+https://github.com/mikemolina/kronolapse.git
+   pip install git+https://github.com/mikemolina/kronolapse.git
    ```
 
 ### Modo desarrollador
