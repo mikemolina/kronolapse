@@ -114,13 +114,13 @@ uninstall: venv
 
 $(ABOUT_RST): LEAME.md
 	@echo "Build readme.rst ..."
-	@sed '/^\#\# Diagrama/,/^!\[\]/c\ \
-	\#\# Diagrama de flujo para kronolapse\ \
-	\ \
-	```{image} ../../../misc/dgrm-flow/dgrm-kronolapse.png\ \
+	@cat $< | \
+	sed -e '/\# KRoNoLAPSE/,/^<video/c \# KRoNoLAPSE\ ' | \
+	sed -e '/^<p align/,/^<\/p>$$/c \
+	```{image} _static/dgrm-kronolapse.jpg\ \
 	:width: 80%\ \
 	:align: center\ \
-	```' $< > $@
+	```' > $@
 
 prepare-sphinx: prepare-venv script
 	@if ! [ -f $(SPHINXBUILD) ]; then \
@@ -139,7 +139,7 @@ man: prepare-sphinx
 	. $(VENVACTIVATE); \
 	$(MAKE) -C docs man
 
-pdf: prepare-sphinx
+pdf: prepare-sphinx $(ABOUT_RST)
 	. $(VENVACTIVATE); \
 	$(MAKE) -C docs latexpdf
 
