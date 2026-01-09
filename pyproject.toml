@@ -54,7 +54,7 @@ optional-dependencies.doc = { file = ["requirements-doc.txt"] }
 Homepage = "https://github.com/mikemolina/kronolapse"
 Repository = "https://github.com/mikemolina/kronolapse.git"
 Issues = "https://github.com/mikemolina/kronolapse/issues"
-Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+Changelog = "https://github.com/mikemolina/kronolapse/blob/main/ChangeLog.md"
 
 [tool.setuptools.packages.find]
 where = ["."]
