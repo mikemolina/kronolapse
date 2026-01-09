@@ -137,6 +137,25 @@ simultaneas.
    $ python3 -m kronolapse --help
    ```
 
+5. La documentación del código fuente es compilada vía
+   [Sphinx](https://www.sphinx-doc.org/en/master/). Usando siguiente la orden, se
+   instalaran los respectivos paquetes y sus dependencias en el entorno virtual,
+   
+   ```bash
+   make prepare-sphinx
+   ```
+   
+   Con lo anterior, se puede construir la documentación en formatos HTML, página
+   de manual ([documentación típica](https://en.wikipedia.org/wiki/Man_page) para
+   sistemas UNIX) y PDF (requiere [TeX Live](https://www.tug.org/texlive/) o
+   [MiKTeX](https://miktex.org/) instalado en su sistema):
+   
+   ```bash
+   make html
+   make man
+   make pdf
+   ```
+
 ## Diagrama de flujo para kronolapse
 
 <p align="center">
@@ -157,3 +176,7 @@ paquete en el archivo _LICENSE_.
 ## Acerca del versionado
 Este proyecto sigue los lineamientos de [Versionado Semántico
 2.0.0](https://semver.org/spec/v2.0.0.html).
+
+## Documentación
+Consulte el documento más reciente
+[aquí](https://github.com/mikemolina/kronolapse/blob/main/extra/kronolapse.pdf).

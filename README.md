@@ -128,6 +128,27 @@ not coincide to avoid overlapping of two simultaneous images.
    $ python3 -m kronolapse --help
    ```
 
+5. The source code documentation is compiled via
+   [Sphinx](https://www.sphinx-doc.org/en/master/). Using the
+   following command, the respective packages and their dependencies
+   will be installed in the virtual environment,
+
+   ```bash
+   make prepare-sphinx
+   ```
+   
+   In this way, documentation can be built in HTML, man page ([typical
+   documentation](https://en.wikipedia.org/wiki/Man_page) for UNIX
+   systems), and PDF formats (requires [TeX
+   Live](https://www.tug.org/texlive/) or [MiKTeX](https://miktex.org/)
+   installed on your system):
+
+   ```bash
+   make html
+   make man
+   make pdf
+   ```
+
 ## kronolapse flowchart
 
 <p align="center">
@@ -147,3 +168,8 @@ License v3** (or later) included with the source code in the `LICENSE` file.
 ## About versioning
 This project follows the guidelines set by [Semantic Versioning
 2.0.0](https://semver.org/spec/v2.0.0.html).
+
+## Documentation
+See the latest document
+[here](https://github.com/mikemolina/kronolapse/blob/main/extra/kronolapse.pdf)
+(in spanish version).
