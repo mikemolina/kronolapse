@@ -47,6 +47,10 @@ all:
 	@echo "  make pdf"
 	@echo "Build documentation format manpage (for Unix-like OS):"
 	@echo "  make man"
+	@echo "Check code with flake8 (requires Flake8): level minimal"
+	@echo "  make linter-minimal "
+	@echo "Check code with flake8 (requires Flake8): level strict"
+	@echo "  make linter-strict "
 	@echo "Actual Python interpreter executable:"
 	@echo "  PYTHON = $(PYTHON)"
 
@@ -142,6 +146,18 @@ man: prepare-sphinx
 pdf: prepare-sphinx $(ABOUT_RST)
 	. $(VENVACTIVATE); \
 	$(MAKE) -C docs latexpdf
+
+linter-minimal:
+	@for d in kronolapse tests docs/source; do \
+	  echo "Check code into $$d ..."; \
+	  flake8 --max-line-length 90 $$d; \
+	done
+
+linter-strict:
+	@for d in kronolapse tests docs/source; do \
+	  echo "Check code into $$d ..."; \
+	  flake8 --count --max-complexity=10 --max-line-length=90 --show-source --statistics $$d; \
+	done
 
 clean-build:
 	find . -type f -name "*.pyc" -delete
