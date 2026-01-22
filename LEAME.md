@@ -28,7 +28,8 @@ correcta del contenido en el momento preciso.
    [pip](https://pip.pypa.io/en/stable/installation/#get-pip-py) deben estar
    instalados en tu sistema. Es recomendable la versión 3.12 o superior para
    Python.
-2. Instalar la última versión desde el repositorio con esta linea:
+2. Instalar la última versión desde el repositorio con esta linea
+   (requiere `Git`):
 
    ```bash
    pip install git+https://github.com/mikemolina/kronolapse.git

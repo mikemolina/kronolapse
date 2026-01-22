@@ -26,7 +26,7 @@ the precise moment.
 1. [Python](https://www.python.org/downloads/) and
    [pip](https://pip.pypa.io/en/stable/installation/#get-pip-py) must be installed
    on your system. Version 3.12 or higher is recommended for Python.
-2. Install the latest version from the repository with this line:
+2. Install the latest version from the repository with this line (requires `Git`):
 
    ```bash
    pip install git+https://github.com/mikemolina/kronolapse.git

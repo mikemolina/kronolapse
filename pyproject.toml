@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kronolapse"
-version = "0.1.0a1"
+version = "0.2.0a1"
 description = "Management the display of images on a monitor according to a schedule and time intervals"
 readme = "README.md"
 requires-python = ">=3.12"
