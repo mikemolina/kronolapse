@@ -8,7 +8,7 @@
 import os
 import sys
 import tomllib
-import sphinx_rtd_theme
+# import sphinx_rtd_theme
 
 from datetime import datetime
 from sphinx_pyproject import SphinxConfig
@@ -27,7 +27,7 @@ project = config.name.capitalize()
 author = config.author
 release = version = config.version
 description = config.description
-description_es = 'Gestiona la exhibición de imágenes en un monitor de acuerdo a un cronograma y lapsos de tiempo'
+description_es = 'Gestiona la exhibición de imágenes en un monitor de acuerdo a un cronograma y lapsos de tiempo'  # noqa
 date_rls = datetime.now().timetuple()[0]
 copyright = '2025-{}, {}'.format(date_rls, author)
 authors = pyproject_data.get("project", {}).get("authors", [])

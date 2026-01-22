@@ -5,7 +5,8 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
-# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+# GNU General Public License v3.0+
+# See COPYING or https://www.gnu.org/licenses/gpl-3.0.txt
 
 """gen_demo_files.py - Creates images and schedule for a demo
 
@@ -18,18 +19,18 @@ Use:
 
 import os
 import sys
+import ModGenFiles as lFiles
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.join(script_dir, '..')
 sys.path.append(parent_dir)
 
-import ModGenFiles as lFiles
-
 
 # Create images and schedule
-def generate_demo_files()->None:
+def generate_demo_files() -> None:
     FILE = "schedule_test.csv"
     lFiles.gen_all_files(FILE)
+
 
 # Run function
 generate_demo_files()

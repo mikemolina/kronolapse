@@ -5,7 +5,8 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
-# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+# GNU General Public License v3.0+
+# See COPYING or https://www.gnu.org/licenses/gpl-3.0.txt
 
 """**main.py - Script de ejecución principal para kronolapse**
 
@@ -57,20 +58,19 @@ __author__ = "Miguel Molina"
 __copyright__ = "Copyright (C) 2025-2026 Miguel Molina"
 __email__ = "mmolina.unphysics@gmail.com"
 __license__ = "GPLv3+"
-__date__ = "2026-01-06"
-__version__ = "0.1.0a1"
+__date__ = "2026-01-22"
+__version__ = "0.2.0a1"
 
 import argparse
-import kronolapse.ModTiempo as lTiempo
 import kronolapse.ModKronoLapse as lCronograma
 
 
 # ----
 # Run!
 # ----
-def main()->None:
+def main() -> None:
     """**Descripción:**
-    
+
     Implementación de la rutina principal de las funciones modulares de
     kronolapse con la CLI.
 
@@ -78,16 +78,16 @@ def main()->None:
     -------
     None
         Ninguno.
-    """    
+    """
     # Objeto ArgumentParser para linea de comandos estandar de Phyton
     gnralOpts = argparse.ArgumentParser(
         prog="kronolapse",
         description="Displays a presentation of a set of files according to a schedule",
         formatter_class=argparse.RawTextHelpFormatter
-    )   
+    )
     gnralOpts._positionals.title = "Mandatory arguments"
     gnralOpts._optionals.title = "Options"
-    # Argumeno obligatorio: 
+    # Argumeno obligatorio:
     gnralOpts.add_argument(
         "FILE",
         help="Schedule in CSV format",
@@ -98,8 +98,9 @@ def main()->None:
         "-V",
         "--version",
         action="version",
-        version="%(prog)s " + __version__ + "\n" + __copyright__ + \
-        "\nLicense: " + __license__ + ". Visit <https://www.gnu.org/licenses/gpl-3.0.txt>."
+        version="%(prog)s " + __version__ + "\n" + __copyright__ +
+        "\nLicense: " + __license__ +
+        ". Visit <https://www.gnu.org/licenses/gpl-3.0.txt>."
     )
     # Opcion: mostrar cronograma
     gnralOpts.add_argument(
@@ -110,7 +111,7 @@ def main()->None:
     )
 
     args = gnralOpts.parse_args()
-        
+
     CrongrmList = lCronograma.LecturaCronograma(args.FILE)
     lCronograma.RevisionCronograma(CrongrmList)
 
@@ -124,6 +125,7 @@ def main()->None:
             linea += 1
         if linea == len(CrongrmList):
             break
+
 
 if __name__ == '__main__':
     main()

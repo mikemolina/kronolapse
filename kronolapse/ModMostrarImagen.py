@@ -5,7 +5,8 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
-# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+# GNU General Public License v3.0+
+# See COPYING or https://www.gnu.org/licenses/gpl-3.0.txt
 
 """Modulo para proyectar una imagen por un periodo de tiempo
 
@@ -30,15 +31,16 @@ if os_name == "Linux":
     if os.environ["XDG_SESSION_TYPE"] == "wayland":
         os.environ["QT_QPA_PLATFORM"] = "xcb"
 
+
 # ---------------------------------------
 # Mostrar imagen por un periodo de tiempo
 # ---------------------------------------
-def MostrarImagen(archivo: str, periodot: float, verbose: int = 0)->None:
+def MostrarImagen(archivo: str, periodot: float, verbose: int = 0) -> None:
     """**Descripción:**
-    
+
     Presenta la imagen del archivo en el monitor del PC para un
     periodo de tiempo.
-    
+
     Parámetros
     ----------
     archivo : str
@@ -48,7 +50,7 @@ def MostrarImagen(archivo: str, periodot: float, verbose: int = 0)->None:
     verbose : int, opcional
         Bandera de control para mostrar información de la
         pantalla. Por defecto, no muestra información.
-    
+
     Retorno
     -------
     None
@@ -71,7 +73,7 @@ def MostrarImagen(archivo: str, periodot: float, verbose: int = 0)->None:
     cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
     # Mostrar la imagen
     cv2.imshow(window_name, imagen)
-    # Imagen mostrada en modo espera hasta que se presione la tecla 'q' para romper el bucle
+    # Imagen mostrada en modo espera hasta presionar la tecla 'q' para romper el bucle
     print("Presione 'q' para terminar.")
     # Periodo de tiempo en milisegundos
     periodo_int = int(periodot*1000)

@@ -5,7 +5,8 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
-# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+# GNU General Public License v3.0+
+# See COPYING or https://www.gnu.org/licenses/gpl-3.0.txt
 
 """Modulo para el manejo de expresiones con tiempo y fecha
 
@@ -22,16 +23,16 @@ from datetime import datetime
 # --------------------------------------
 # Funcion para verificar texto de tiempo
 # --------------------------------------
-def CheckTextoTiempo(texto: str)->bool:
+def CheckTextoTiempo(texto: str) -> bool:
     """**Descripción:**
-    
+
     La expresión para fecha/tiempo debe estar redactada en formato
     similar al ISO 8601 (https://es.wikipedia.org/wiki/ISO_8601). Esto
     es, la fecha/tiempo se ingresa en formato `YYYY-mm-dd HH:mm:ss`. El
     tiempo para la hora se representa entre 00 y 23; minutos y segundos
     se representa entre 00 y 59. Está función verifica si la entrada
     cumple o no cumple con el formato requerido.
-    
+
     Parámetros
     ----------
     texto : str
@@ -51,16 +52,17 @@ def CheckTextoTiempo(texto: str)->bool:
         rta = False
     return rta
 
+
 # ----------------------------------------------
 # Conversion tiempo formato texto a formato UNIX
 # ----------------------------------------------
-def TiempoTXT2UNIX(texto: str)->float:
+def TiempoTXT2UNIX(texto: str) -> float:
     """**Descripción:**
-    
+
     Convierte texto de fecha/tiempo en formato ISO 8601 a tiempo UNIX,
     esto es, a la cantidad de segundos transcurridos desde la medianoche
     UTC del 1 de enero de 1970, sin contar segundos intercalares.
-    
+
     Parámetros
     ----------
     texto : str

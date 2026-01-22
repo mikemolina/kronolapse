@@ -5,7 +5,8 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
-# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+# GNU General Public License v3.0+
+# See COPYING or https://www.gnu.org/licenses/gpl-3.0.txt
 
 """ModGenFiles.py - Modules for creating images
 
@@ -20,15 +21,16 @@ from datetime import datetime, timedelta
 
 
 # Transform function
-def fTrans(x: int, a: int)->int:
+def fTrans(x: int, a: int) -> int:
     if x < a:
         y = x - a
     else:
         y = x - a + 1
     return y
 
+
 # Color spectrum palette
-def ColorSpectrum(z: float)->list:
+def ColorSpectrum(z: float) -> list:
     # Red value
     if 0.0 <= z < 0.167:
         R = 1
@@ -38,7 +40,7 @@ def ColorSpectrum(z: float)->list:
         R = 0
     elif 0.667 <= z < 0.833:
         R = 6*z - 4
-    else: # 0.833 <= z <= 1
+    else:  # 0.833 <= z <= 1
         R = 1
     # Green value
     if 0.000 <= z < 0.200:
@@ -47,7 +49,7 @@ def ColorSpectrum(z: float)->list:
         G = 1
     elif 0.500 <= z < 0.700:
         G = -5*z + 3.5
-    else: # 0.700 <= z <= 1
+    else:  # 0.700 <= z <= 1
         G = 0
     # Blue value
     if 0.000 <= z < 0.300:
@@ -56,15 +58,16 @@ def ColorSpectrum(z: float)->list:
         B = 5*z - 1.5
     elif 0.500 <= z < 0.800:
         B = 1
-    else: # 0.800 <= z <= 1
+    else:  # 0.800 <= z <= 1
         B = -4*z + 4.2
     R = int(255 * R)
     G = int(255 * G)
     B = int(255 * B)
     return [R, G, B]
 
+
 # Convert PPM to JPG; delete PPM
-def imgPPM2JPEG(infile: str)->None:
+def imgPPM2JPEG(infile: str) -> None:
     baseimg = os.path.splitext(infile)[0]
     inputimg = baseimg + ".ppm"
     outputimg = baseimg + ".jpg"
@@ -80,8 +83,9 @@ def imgPPM2JPEG(infile: str)->None:
     except Exception as e:
         print("An error occurred: {}".format(e))
 
+
 # Generate an image blue and red squares
-def gen_image_RGBSquare(imgname: str, sizex: int, sizey: int)->None:
+def gen_image_RGBSquare(imgname: str, sizex: int, sizey: int) -> None:
     imgppm = imgname + ".ppm"
     halfsizex = sizex//2
     halfsizey = sizey//2
@@ -95,7 +99,7 @@ def gen_image_RGBSquare(imgname: str, sizex: int, sizey: int)->None:
             for ix in range(sizex):
                 x = fTrans(ix, halfsizex)
                 y = fTrans(iy, halfsizey)
-                fxy = x*y 
+                fxy = x*y
                 if fxy > 0:
                     color = rojo
                 else:
@@ -104,8 +108,9 @@ def gen_image_RGBSquare(imgname: str, sizex: int, sizey: int)->None:
     imgfile.close()
     imgPPM2JPEG(imgname)
 
+
 # Generate an image concentric rings
-def gen_image_Rings(imgname: str, sizex: int, sizey: int, radius: int)->None:
+def gen_image_Rings(imgname: str, sizex: int, sizey: int, radius: int) -> None:
     imgppm = imgname + ".ppm"
     halfsizex = sizex//2
     halfsizey = sizey//2
@@ -126,10 +131,10 @@ def gen_image_Rings(imgname: str, sizex: int, sizey: int, radius: int)->None:
         for ix in range(sizex):
             r = math.sqrt((ix - halfsizex)**2 + (iy - halfsizey)**2)
             if r <= radius:
-                for l in range(0, LF+1, 2):
-                    if (l*Deltar <= r) and (r < (l+1)*Deltar):
+                for il in range(0, LF+1, 2):
+                    if (il*Deltar <= r) and (r < (il+1)*Deltar):
                         matrix[iy][ix] = " ".join(map(str, amarillo))
-                    elif ((l+1)*Deltar <= r) and (r < (l+2)*Deltar):
+                    elif ((il+1)*Deltar <= r) and (r < (il+2)*Deltar):
                         matrix[iy][ix] = " ".join(map(str, negro))
     with open(imgppm, "w") as imgfile:
         imgfile.write("P3\n")
@@ -141,8 +146,9 @@ def gen_image_Rings(imgname: str, sizex: int, sizey: int, radius: int)->None:
     imgfile.close()
     imgPPM2JPEG(imgname)
 
+
 # Generate a density plot for gaussian function two-dimensional
-def gen_image_fgauss(imgname: str, sizex: int, sizey: int)->None:
+def gen_image_fgauss(imgname: str, sizex: int, sizey: int) -> None:
     imgppm = imgname + ".ppm"
     mu_x = sizex/2
     mu_y = sizey/2
@@ -162,14 +168,16 @@ def gen_image_fgauss(imgname: str, sizex: int, sizey: int)->None:
     imgfile.close()
     imgPPM2JPEG(imgname)
 
+
 # Generate a set images
-def gen_images()->None:
-    gen_image_RGBSquare("RGBSquare", 1024, 768) # Resolution XGA (4:3)
-    gen_image_Rings("Rings", 1366, 768, 360) # Resolution WXGA (16:9)
-    gen_image_fgauss("fGauss", 1280, 800) # Resolution WXGA (16:10)
+def gen_images() -> None:
+    gen_image_RGBSquare("RGBSquare", 1024, 768)  # Resolution XGA (4:3)
+    gen_image_Rings("Rings", 1366, 768, 360)  # Resolution WXGA (16:9)
+    gen_image_fgauss("fGauss", 1280, 800)  # Resolution WXGA (16:10)
+
 
 # Generate a schedule file
-def gen_schedule(outfile: str, lstimgs: list)->None:
+def gen_schedule(outfile: str, lstimgs: list) -> None:
     duration = timedelta(seconds=5)
     t_now = datetime.now()
     print("Current time: {}".format(t_now.strftime("%Y-%m-%d %H:%M:%S")))
@@ -179,7 +187,7 @@ def gen_schedule(outfile: str, lstimgs: list)->None:
         cvsfile.write("Document,Time initial,Time end\n")
         for imgfile in lstimgs:
             t_fin = t_ini + duration
-            if os.path.exists(imgfile):            
+            if os.path.exists(imgfile):
                 filepath = os.path.abspath(imgfile)
                 cvsfile.write("{},{},{}\n".format(filepath,
                                                   t_ini.strftime("%Y-%m-%d %H:%M:%S"),
@@ -190,6 +198,7 @@ def gen_schedule(outfile: str, lstimgs: list)->None:
                 print("The image file {} does not exist.".format(imgfile))
     cvsfile.close()
 
+
 # Generate all set files
 def gen_all_files(outfile: str):
     names = ["RGBSquare", "Rings", "fGauss"]
@@ -199,4 +208,5 @@ def gen_all_files(outfile: str):
         if not os.path.exists(imgfile):
             gen_images()
             break
-    if not os.path.exists(outfile): gen_schedule(outfile, images)
+    if not os.path.exists(outfile):
+        gen_schedule(outfile, images)
